@@ -1,0 +1,57 @@
+<html>
+<head>
+<style>
+ul {
+  list-style: none;
+}
+li {
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+    text-align: right;
+    font-size: 300%;
+    font-weight: bold;
+}
+p, input, button {
+  font-size: 32px;
+}
+</style>
+<script type="text/javascript" src="script_sortable_dnd.js"></script>
+<script type="text/javascript" src="Sortable.js"></script>
+<script>
+window.onload = function() {
+  var el = document.getElementById('items');
+  var sortable = Sortable.create(el);
+};
+
+function autodrag() {
+  var fromNumber = document.querySelector('#from').value;
+  var toNumber = document.querySelector('#to').value;
+
+  var fromItemId = '#item' + fromNumber;
+  var toItemId = '#item' + toNumber;
+
+  console.log("starting automated drag from " + fromItemId + " to " + toItemId);
+  return triggerSortableDragAndDrop(fromItemId, toItemId);
+}
+</script>
+</head>
+<body>
+
+<h1>Example of scripted drag-and-drop on a Sortable list</h1>
+<p>This is a <a href="https://github.com/RubaXa/Sortable">Sortable</a> list. You can drag-and-drop manually or use the controls underneath the list.</p>
+<ul id="items">
+  <li id="item1">item 1</li>
+  <li id="item2">item 2</li>
+  <li id="item3">item 3</li>
+  <li id="item4">item 4</li>
+  <li id="item5">item 5</li>
+</ul>
+<br />
+<br />
+<p>Drag item <input id="from" size=1 value="2" /> to item <input id="to" size=1 value="5" /> <button onClick="autodrag();">Go</button></p>
+
+This comes from the <a href="https://github.com/kemokid/scripting-sortable">scripting-sortable</a> repo.
+</body>
+</html>
